@@ -9,6 +9,7 @@ Invoke ". build/envsetup.sh" from your shell to add the following functions to y
               build, and stores those selections in the environment to be read by subsequent
               invocations of 'm' etc.
 - tapas:      tapas [<App1> <App2> ...] [arm|x86|mips|arm64|x86_64|mips64] [eng|userdebug|user]
+- cout:       Changes directory to out.
 - croot:      Changes directory to the top of the tree, or a subdirectory thereof.
 - m:          Makes from the top of the tree.
 - mm:         Builds all of the modules in the current directory, but not their dependencies.
@@ -826,6 +827,15 @@ function _croot()
         for c in $(compgen -d ${T}/${cur}); do
             COMPREPLY[k++]=${c#${T}/}/
         done
+    fi
+}
+
+function cout()
+{
+    if [  "$OUT" ]; then
+        cd $OUT
+    else
+        echo "Couldn't locate out directory.  Try setting OUT."
     fi
 }
 
