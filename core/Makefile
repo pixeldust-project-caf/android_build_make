@@ -3494,6 +3494,7 @@ ifeq ($(build_otatools_package),true)
 OTATOOLS :=  $(HOST_OUT_EXECUTABLES)/minigzip \
   $(HOST_OUT_EXECUTABLES)/aapt \
   $(HOST_OUT_EXECUTABLES)/checkvintf \
+  $(HOST_OUT_EXECUTABLES)/adb \
   $(HOST_OUT_EXECUTABLES)/mkbootfs \
   $(HOST_OUT_EXECUTABLES)/mkbootimg \
   $(HOST_OUT_EXECUTABLES)/fs_config \
