@@ -24,14 +24,11 @@ PRODUCT_PACKAGES += \
     BasicDreams \
     BlockedNumberProvider \
     BookmarkProvider \
-    Browser2 \
     BuiltInPrintService \
-    Calendar \
     CalendarProvider \
     CaptivePortalLogin \
     CertInstaller \
     Contacts \
-    DeskClock \
     DocumentsUI \
     DownloadProviderUi \
     ExternalStorageProvider \
