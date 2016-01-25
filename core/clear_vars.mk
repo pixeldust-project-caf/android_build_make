@@ -480,6 +480,8 @@ LOCAL_CUSTOM_BUILD_STEP_INPUT:=
 LOCAL_CUSTOM_BUILD_STEP_OUTPUT:=
 LOCAL_IS_AUX_MODULE :=
 
+LOCAL_PROTOC_OUTPUT:=
+
 full_android_manifest :=
 non_system_module :=
 
