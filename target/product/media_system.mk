@@ -37,6 +37,15 @@ PRODUCT_PACKAGES += \
     StatementService \
     vndk_snapshot_package \
 
+# NTFS and ExFAT
+PRODUCT_PACKAGES += \
+    fsck.exfat \
+    fsck.ntfs \
+    mke2fs \
+    mkfs.exfat \
+    mkfs.ntfs \
+    mount.ntfs
+
 PRODUCT_HOST_PACKAGES += \
     fsck.f2fs \
 
