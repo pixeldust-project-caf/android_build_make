@@ -668,7 +668,7 @@ function lunch()
     TARGET_BUILD_VARIANT=$variant
     TARGET_PLATFORM_VERSION=$version
     build_build_var_cache
-
+    check_product $product
     if [ $? -ne 0 ]
     then
         # if we can't find the product, try to grab it from our github
@@ -685,6 +685,10 @@ function lunch()
         $T/vendor/pixeldust/build/tools/roomservice.py $product true
         cd $C
     fi
+    TARGET_PRODUCT=$product \
+    TARGET_BUILD_VARIANT=$variant \
+    TARGET_PLATFORM_VERSION=$version \
+    build_build_var_cache
     if [ $? -ne 0 ]
     then
         echo
