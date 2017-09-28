@@ -535,7 +535,11 @@ LEX := $(prebuilt_build_tools_bin_noasan)/flex
 # To run bison from elsewhere you need to set up enviromental variable
 # BISON_PKGDATADIR.
 BISON_PKGDATADIR := $(PWD)/prebuilts/build-tools/common/bison
+ifeq ($(USE_HOST_BISON),yes)
+BISON := bison
+else
 BISON := $(prebuilt_build_tools_bin_noasan)/bison
+endif
 YACC := $(BISON) -d
 BISON_DATA := $(wildcard $(BISON_PKGDATADIR)/* $(BISON_PKGDATADIR)/*/*)
 
