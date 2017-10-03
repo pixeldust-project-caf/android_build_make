@@ -536,7 +536,7 @@ LEX := $(prebuilt_build_tools_bin_noasan)/flex
 # BISON_PKGDATADIR.
 BISON_PKGDATADIR := $(PWD)/prebuilts/build-tools/common/bison
 ifeq ($(USE_HOST_BISON),yes)
-BISON := bison
+BISON := $(HOST_OUT_EXECUTABLES)/bison
 else
 BISON := $(prebuilt_build_tools_bin_noasan)/bison
 endif
