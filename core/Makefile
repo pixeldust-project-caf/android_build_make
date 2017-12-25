@@ -525,18 +525,18 @@ else
 vendor_prop_files := $(wildcard $(TARGET_DEVICE_DIR)/vendor.prop)
 endif
 
+ifdef TARGET_VENDOR_PROP
+vendor_prop_files := $(TARGET_VENDOR_PROP)
+else
+vendor_prop_files := $(wildcard$(TARGET_DEVICE_DIR)/vendor.prop)
+endif
+
 ifdef property_overrides_split_enabled
 FINAL_VENDOR_BUILD_PROPERTIES += \
     $(call collapse-pairs, $(PRODUCT_PROPERTY_OVERRIDES))
 FINAL_VENDOR_BUILD_PROPERTIES := $(call uniq-pairs-by-first-component, \
     $(FINAL_VENDOR_BUILD_PROPERTIES),=)
 endif  # property_overrides_split_enabled
-
-ifdef TARGET_VENDOR_PROP
-vendor_prop_file := $(TARGET_VENDOR_PROP)
-else
-vendor_prop_file := $(wildcard $(TARGET_DEVICE_DIR)/vendor.prop)
-endif
 
 $(INSTALLED_VENDOR_BUILD_PROP_TARGET): $(BUILDINFO_COMMON_SH) $(intermediate_system_build_prop) $(vendor_prop_files)
 	@echo Target vendor buildinfo: $@
