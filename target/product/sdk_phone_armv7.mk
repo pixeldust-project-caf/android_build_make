@@ -20,7 +20,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_arm.mk)
 $(call inherit-product, sdk/build/product_sdk.mk)
 $(call inherit-product, development/build/product_sdk.mk)
 
-
 # Overrides
 PRODUCT_BRAND := Android
 PRODUCT_NAME := sdk_phone_armv7

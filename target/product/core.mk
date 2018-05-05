@@ -28,7 +28,6 @@ PRODUCT_PACKAGES += \
     CalendarProvider \
     CaptivePortalLogin \
     CertInstaller \
-    Contacts \
     DocumentsUI \
     DownloadProviderUi \
     ExternalStorageProvider \
@@ -37,7 +36,6 @@ PRODUCT_PACKAGES += \
     KeyChain \
     Keyguard \
     LatinIME \
-    Launcher3QuickStep \
     ManagedProvisioning \
     MtpDocumentsProvider \
     PacProcessor \
