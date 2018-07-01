@@ -523,7 +523,7 @@ function choosevariant()
             export TARGET_BUILD_VARIANT=$default_value
         elif (echo -n $ANSWER | grep -q -e "^[0-9][0-9]*$") ; then
             if [ "$ANSWER" -le "${#VARIANT_CHOICES[@]}" ] ; then
-                export TARGET_BUILD_VARIANT=${VARIANT_CHOICES[$(($ANSWER-1))]}
+                export TARGET_BUILD_VARIANT=${VARIANT_CHOICES[$(($ANSWER-$_arrayoffset))]}
             fi
         else
             if check_variant $ANSWER
@@ -609,13 +609,7 @@ function lunch()
         local choices=($(TARGET_BUILD_APPS= get_build_var COMMON_LUNCH_CHOICES))
         if [ $answer -le ${#choices[@]} ]
         then
-            # array in zsh starts from 1 instead of 0.
-            if [ -n "$ZSH_VERSION" ]
-            then
-                selection=${choices[$(($answer))]}
-            else
-                selection=${choices[$(($answer-1))]}
-            fi
+            selection=${choices[$(($answer-$_arrayoffset))]}
         fi
     else
         selection=$answer
@@ -1345,7 +1339,7 @@ function godir () {
                 echo "Invalid choice"
                 continue
             fi
-            pathname=${lines[$(($choice-1))]}
+            pathname=${lines[$(($choice-$_arrayoffset))]}
         done
     else
         pathname=${lines[0]}
@@ -1633,6 +1627,16 @@ function validate_current_shell() {
             ;;
     esac
 }
+
+# determine whether arrays are zero-based (bash) or one-based (zsh)
+_xarray=(a b c)
+if [ -z "${_xarray[${#_xarray[@]}]}" ]
+then
+    _arrayoffset=1
+else
+    _arrayoffset=0
+fi
+unset _xarray
 
 # Execute the contents of any vendorsetup.sh files we can find.
 # Unless we find an allowed-vendorsetup_sh-files file, in which case we'll only
