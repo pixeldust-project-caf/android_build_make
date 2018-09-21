@@ -24,9 +24,6 @@ PRODUCT_PACKAGES := \
     OneTimeInitializer \
     Provision \
     SystemUI \
-    DisplayCutoutEmulationDoubleOverlay \
-    DisplayCutoutEmulationCornerOverlay \
-    DisplayCutoutEmulationTallOverlay \
     EasterEgg \
     WallpaperCropper
 
