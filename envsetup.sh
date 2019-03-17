@@ -615,27 +615,27 @@ function lunch()
         fi
     fi
 
-    if [[ $product == pa_* ]]
-    then
-        pushd $(gettop) > /dev/null
-        build/tools/roomservice.py $product
-        if [ $? -ne 0 ]
-        then
-            echo
-            echo "** Roomservice failure for: '$product'"
-            popd > /dev/null
-            return 1
-        else
-            popd > /dev/null
-        fi
-    fi
+    #if [[ $product == pa_* ]]
+    #then
+        #pushd $(gettop) > /dev/null
+        #build/tools/roomservice.py $product
+        #if [ $? -ne 0 ]
+        #then
+        #    echo
+        #    echo "** Roomservice failure for: '$product'"
+        #    popd > /dev/null
+        #    return 1
+        #else
+        #    popd > /dev/null
+        #fi
+    #fi
 
-    if [ $? -ne 0 ]
-    then
-        echo
-        echo "Invalid lunch combo: $selection"
-        return 1
-    fi
+    #if [ $? -ne 0 ]
+    #then
+    #    echo
+    #    echo "Invalid lunch combo: $selection"
+    #    return 1
+    #fi
 
     check_product $product
 
