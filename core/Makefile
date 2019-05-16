@@ -3068,8 +3068,9 @@ pixeldust: otapackage
 	@echo ""
 	@echo -e ${CL_CYN}"════════════════════════════════════════════════════════════════════════════════"${CL_RST}
 	@echo -e ${CL_CYN}"Package zip: "${CL_MAG} $(PIXELDUST_VERSION).zip                                 ${CL_RST}
-	@echo -e ${CL_CYN}"Package md5: "${CL_MAG}" `cat $(PD_TARGET_PACKAGE).md5sum | cut -d ' ' -f 1`"${CL_RST}
-	@echo -e ${CL_CYN}"Package size:"${CL_MAG}" `ls -l $(PD_TARGET_PACKAGE) | cut -d ' ' -f 5`            "${CL_RST}
+	@echo -e ${CL_CYN}"Package md5: "${CL_MAG}" `cat $(PD_TARGET_PACKAGE).md5sum | cut -d ' ' -f 1`   "${CL_RST}
+	@echo -e ${CL_CYN}"Package size:"${CL_MAG}" `ls -l $(PD_TARGET_PACKAGE) | cut -d ' ' -f 5`        "${CL_RST}
+	@echo -e ${CL_CYN}"Timestamp:   "${CL_MAG} $(BUILD_DATETIME)                                        ${CL_RST}
 	@echo -e ${CL_CYN}"════════════════════════════════════════════════════════════════════════════════"${CL_RST}
 
 endif    # build_ota_package
