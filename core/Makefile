@@ -1901,6 +1901,8 @@ $(RECOVERY_INSTALL_OTA_KEYS): $(SOONG_ZIP) $(OTA_PUBLIC_KEYS) $(extra_keys)
 RECOVERYIMAGE_ID_FILE := $(PRODUCT_OUT)/recovery.id
 
 define build-recoveryramdisk
+  @echo -e ${CL_GRN}"----- Generating Changelog ------"${CL_RST}
+  $(hide) ./vendor/pixeldust/tools/changelog.sh
   $(hide) mkdir -p $(TARGET_RECOVERY_OUT)
   $(hide) mkdir -p $(TARGET_RECOVERY_ROOT_OUT)/sdcard $(TARGET_RECOVERY_ROOT_OUT)/tmp
   # Copying baseline ramdisk...
