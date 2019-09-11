@@ -3089,7 +3089,7 @@ PD_TARGET_PACKAGE := $(PRODUCT_OUT)/$(PIXELDUST_VERSION).zip
 .PHONY: otapackage pixeldust
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 pixeldust: otapackage
-	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(PD_TARGET_PACKAGE)
+	$(hide) mv $(INTERNAL_OTA_PACKAGE_TARGET) $(PD_TARGET_PACKAGE)
 	$(hide) $(MD5SUM) $(PD_TARGET_PACKAGE) > $(PD_TARGET_PACKAGE).md5sum
 	$(hide) ./vendor/pixeldust/tools/pd.sh
 	@echo ""
