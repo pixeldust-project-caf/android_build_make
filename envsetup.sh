@@ -1531,7 +1531,7 @@ function make()
         source $vendor_hal_script --check
         regen_needed=$?
     else
-        vendor_hal_script=$ANDROID_BUILD_TOP/device/qcom/common/vendor_hal_makefile_generator.sh
+        vendor_hal_script=$ANDROID_BUILD_TOP/$QTI_BUILDTOOLS_DIR/vendor_hal_makefile_generator.sh
         regen_needed=1
     fi
 
