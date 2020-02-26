@@ -925,14 +925,9 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.SetPermissionsRecursive("/tmp/install/bin", 0, 0, 0755, 0755, None, None)
 
   if OPTIONS.backuptool:
-    is_system_as_root = script.fstab["/system"].mount_point == "/"
-    if is_system_as_root:
-      script.fstab["/system"].mount_point = "/system"
     script.Mount("/system")
-    script.RunBackup("backup", "/system/system" if is_system_as_root else "/system")
+    script.RunBackup("backup")
     script.Unmount("/system")
-    if is_system_as_root:
-      script.fstab["/system"].mount_point = "/"
 
   system_progress = 0.75
 
@@ -988,14 +983,9 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
 
   if OPTIONS.backuptool:
     script.ShowProgress(0.02, 10)
-    is_system_as_root = script.fstab["/system"].mount_point == "/"
-    if is_system_as_root:
-      script.fstab["/system"].mount_point = "/system"
     script.Mount("/system")
-    script.RunBackup("restore", "/system/system" if is_system_as_root else "/system")
+    script.RunBackup("restore")
     script.Unmount("/system")
-    if is_system_as_root:
-      script.fstab["/system"].mount_point = "/"
 
   boot_img = common.GetBootableImage(
       "boot.img", "boot.img", OPTIONS.input_tmp, "BOOT")
