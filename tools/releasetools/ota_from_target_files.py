@@ -934,7 +934,10 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
     if is_system_as_root:
       script.fstab["/system"].mount_point = system_mount_point
     script.Mount("/system")
-    script.RunBackup("backup", "/system/system")
+    if is_system_as_root and common.system_as_system:
+      script.RunBackup("backup", "/system/system")
+    else:
+      script.RunBackup("backup", "/system")
     script.Unmount(system_mount_point)
     if is_system_as_root:
       script.fstab["/system"].mount_point = "/"
@@ -996,7 +999,10 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
     if is_system_as_root:
       script.fstab["/system"].mount_point = system_mount_point
     script.Mount("/system")
-    script.RunBackup("restore", "/system/system")
+    if is_system_as_root and common.system_as_system:
+      script.RunBackup("restore", "/system/system")
+    else:
+      script.RunBackup("restore", "/system")
     script.Unmount(system_mount_point)
     if is_system_as_root:
       script.fstab["/system"].mount_point = "/"
