@@ -316,6 +316,10 @@ ifndef is_sdk_build
 endif
 endif
 
+## extra vendor build props ##
+# Include vendor specific additions to build versions properties
+-include vendor/pixeldust/configs/build_props.mk
+
 ## asan ##
 
 # Install some additional tools on ASAN builds IFF we are also installing debug tools
