@@ -1,9 +1,3 @@
-ifndef KATI
-$(warning Calling make directly is no longer supported.)
-$(warning Either use 'envsetup.sh; m' or 'build/soong/soong_ui.bash --make-mode')
-$(error done)
-endif
-
 $(info [1/1] initializing build system ...)
 
 # Absolute path of the present working direcotry.
